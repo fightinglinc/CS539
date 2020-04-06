@@ -7,12 +7,13 @@ from flask_cors import *
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 FRONTEND_FOLDER = os.path.join(PROJECT_ROOT, 'frontend')
-STATIC_FOLDER = os.path.join(FRONTEND_FOLDER, 'dist')
+STATIC_FOLDER = os.path.join(FRONTEND_FOLDER, 'static')
+TEMPLATE_FOLDER = os.path.join(FRONTEND_FOLDER, 'template')
 
 app = Flask(
     __name__,
-    static_folder=os.path.join(FRONTEND_FOLDER, 'dist'),
-    template_folder=FRONTEND_FOLDER
+    static_folder=STATIC_FOLDER,
+    template_folder=TEMPLATE_FOLDER,
 )
 CORS(app, supports_credentials=True)
 
@@ -36,6 +37,11 @@ config = {
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/tables')
+def search():
+    return render_template('tables.html')
 
 
 @app.route('/list-company/<company>', methods=['GET'])
@@ -82,6 +88,45 @@ def show_student():
                               department_id=records[i][4],
                               date_of_birth=records[i][5],
                               ))
+        items = dict(data=items)
+        return jsonify(items)
+
+
+@app.route('/search/<table>', methods=['GET'])
+def show_tables(table):
+    if request.method == 'GET':
+        db = mysql.connector.connect(**config)
+        cursor = db.cursor()
+        if table == 'student':
+            sql = "SELECT student_id, student_name, address, student_phone, department_id, " \
+                  "DATE_FORMAT(date_of_birth, '%Y-%m-%d') " \
+                  "FROM student"
+        elif table == 'department':
+            sql = "SELECT department_id, department_name, college_name, department_phone " \
+                  "FROM department"
+
+        cursor.execute(sql)
+        records = cursor.fetchall()
+        cursor.close()
+        db.close()
+        items = []
+        print(records)
+        for i in range(len(records)):
+            if table == 'student':
+                items.append(dict(student_id=records[i][0],
+                                  name=records[i][1],
+                                  address=records[i][2],
+                                  student_phone=records[i][3],
+                                  department_id=records[i][4],
+                                  date_of_birth=records[i][5],
+                                  ))
+            elif table == 'department':
+                items.append(dict(department_id=records[i][0],
+                                  department_name=records[i][1],
+                                  college_name=records[i][2],
+                                  department_phone=records[i][3],
+                                  ))
+
         items = dict(data=items)
         return jsonify(items)
 
