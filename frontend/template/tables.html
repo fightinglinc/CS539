@@ -15,7 +15,7 @@
 </head>
 <body class="sb-nav-fixed">
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Start Bootstrap</a>
+    <a class="navbar-brand" href="/">University Management System</a>
     <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i>
     </button
     ><!-- Navbar Search-->
@@ -47,41 +47,27 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Core</div>
-                    <a class="nav-link" href="../index.html"
-                    >
+                    <a class="nav-link" href="/">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Dashboard</a
-                    >
+                        Dashboard</a>
                     <div class="sb-sidenav-menu-heading">Interface</div>
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
-                       aria-expanded="false" aria-controls="collapseLayouts"
-                    >
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Layouts
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                        >
-                    </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="layout-static.html">Static
                             Navigation</a><a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a></nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                       aria-expanded="false" aria-controls="collapsePages"
-                    >
+                       aria-expanded="false" aria-controls="collapsePages">
                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                         Pages
-                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                        >
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                             <a class="nav-link collapsed" href="#" data-toggle="collapse"
-                               data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth"
-                            >Authentication
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                                >
+                               data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">Authentication
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
                                  data-parent="#sidenavAccordionPages">
@@ -95,8 +81,7 @@
                                data-target="#pagesCollapseError" aria-expanded="false"
                                aria-controls="pagesCollapseError"
                             >Error
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
-                                >
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
                                  data-parent="#sidenavAccordionPages">
@@ -121,7 +106,7 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logged in as:</div>
-                Start Bootstrap
+                Student
             </div>
         </nav>
     </div>
@@ -133,13 +118,6 @@
                     <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
                     <li class="breadcrumb-item active">Tables</li>
                 </ol>
-                <div class="card mb-4">
-                    <div class="card-body">DataTables is a third party plugin that is used to generate the demo table
-                        below. For more information about DataTables, please visit the <a target="_blank"
-                                                                                          href="https://datatables.net/">official
-                            DataTables documentation</a>.
-                    </div>
-                </div>
 
                 <!-- All the information -->
                 <div class="card mb-3">
@@ -151,12 +129,12 @@
                         <select class="selectpicker" id="selectTable" title="Choose one table...">
                             <option value="student">Student</option>
                             <option value="department">Department</option>
-                            <option value="course">Department</option>
-                            <option value="section">Department</option>
-                            <option value="grade">Department</option>
-                            <option value="instructor">Department</option>
-                            <option value="college">Department</option>
-                            <option value="chair">Department</option>
+                            <option value="course">Course</option>
+                            <option value="section">Section</option>
+                            <option value="grade">Grade</option>
+                            <option value="instructor">Instructor</option>
+                            <option value="college">College</option>
+                            <option value="chair">Chair</option>
                         </select>
                     </div>
                     <div class="card-body">
@@ -164,7 +142,12 @@
                             <table class="table table-bordered" id="listTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th></th>
+                                    <th>Student ID</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Phone</th>
+                                    <th>Department ID</th>
+                                    <th>Date of Birth</th>
                                 </tr>
                                 </thead>
                                 <tbody>

@@ -65,13 +65,14 @@ def show_tables(table):
         elif table == 'chair':
             sql = "SELECT department_id, instructor_id, DATE_FORMAT(start_date, '%Y-%m-%d') " \
                   "FROM chair"
+        else:
+            sql = "ERROR"
 
         cursor.execute(sql)
         records = cursor.fetchall()
         cursor.close()
         db.close()
         items = []
-        print(records)
         for i in range(len(records)):
             if table == 'student':
                 items.append(dict(student_id=records[i][0],
