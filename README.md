@@ -4,7 +4,7 @@ Frontend: HTML, CSS, JavaScript, jQuery, Bootstrap<br>
 Backend: Flask, Restful API <br>
 Database: MySQL <br>
 
-### Install packakges
+### Install packages
 ```
 pipenv install
 ```
